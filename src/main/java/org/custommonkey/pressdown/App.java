@@ -1,12 +1,13 @@
-package org.custommonkey;
+package org.custommonkey.pressdown;
 
-
+import static java.lang.System.err;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
 import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.sax.SAXSource;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
@@ -27,17 +28,29 @@ public class App {
 
 	public static void main(final String[] args) throws Exception {
 
-		final Ser ser = new Ser();
+		final Transformer transformer = transformer(args[0]);
 
-		final TransformerFactoryImpl transformerFactory = new TransformerFactoryImpl();
-		final Transformer transformer = transformerFactory
-				.newTransformer(new StreamSource(args[0]));
-
-		final SAXSource in = new SAXSource(ser, new InputSource(args[1]));
-		final StreamResult out = new StreamResult(System.out);
-		transformer.transform(in, out);
+        for (int i = 1; i < args.length; i++) {
+            final String inputFile = args[i];
+            final StreamResult outputFile = outputFile(inputFile);
+            err.printf("%s -> %s%n", inputFile, outputFile.getSystemId());
+            transformer.transform(markdownSource(inputFile), outputFile);
+		}
 
 	}
+
+    private static StreamResult outputFile(final String args) {
+        return new StreamResult(args + ".html");
+    }
+
+    private static SAXSource markdownSource(final String args) {
+        return new SAXSource(new Ser(), new InputSource(args));
+    }
+
+    private static Transformer transformer(final String fileName)
+            throws TransformerConfigurationException {
+        return new TransformerFactoryImpl().newTransformer(new StreamSource(fileName));
+    }
 
 	private static char[] readChars(final InputSource in) throws IOException {
 
