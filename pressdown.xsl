@@ -36,18 +36,18 @@
       <div id="impress">
 
         <xsl:for-each-group select="*" group-starting-with="h1|h2">
-          <div class="step slide" data-x="{position() * 1500}" data-rotate="{position() * 30}">
-            <xsl:message><xsl:value-of select="position()"/></xsl:message>
+          <div class="step slide" data-x="{position() * 1100}" data-rotate="{position() * 30}">
             <xsl:copy-of select="current-group()"/>
           </div>
         </xsl:for-each-group>
 
-	      <div class="step" data-x="3000" data-scale="4"> </div>
+	      <div class="step" data-x="2200" data-scale="3"> </div>
 
       </div>
       
-      <div id="madewith">Made with Pressdown</div>
+      <div id="madewith">Made with <a href="https://github.com/custommonkey/pressdown">Pressdown</a></div>
       <!--script type="text/javascript" src="file:///Users/jmartin/Dropbox/impress.js/js/impress.js"></script-->
+
       <script type="text/javascript" src="https://raw.github.com/bartaz/impress.js/0.5.3/js/impress.js"></script>
       <script>impress().init();</script>
       
