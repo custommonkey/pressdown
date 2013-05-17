@@ -3,6 +3,10 @@
 <xsl:stylesheet version="2.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
+   <xsl:param name="css">
+     <!-- <xsl:value-of select="unparsed-text('file:style.css')"/> -->
+   </xsl:param>
+   
   <xsl:template match="*">
     <xsl:copy>
       <xsl:copy-of select="@*"/>
@@ -16,7 +20,7 @@
       <head>
         <!--link href="style.css" rel="stylesheet"/-->
         <style>
-         <xsl:value-of select="unparsed-text('file:style.css')"/>
+         <xsl:value-of select="$css"/>
         </style>
       </head>
       <xsl:apply-templates/>
