@@ -1,3 +1,5 @@
 #!/bin/sh
 
-java -jar target/pressdown-1.0-SNAPSHOT.jar pressdown.xsl README.md README.ja.md 
+DIR=`dirname $0`
+
+java -jar $DIR/target/pressdown-1.0-SNAPSHOT.jar  $*

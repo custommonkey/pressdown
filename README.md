@@ -1,10 +1,7 @@
 Pressdown
 =========
 
-Starting with
--------------
-Pressdown reads in Markdown text files
+There's two things I'm certain of in this life. We're all lazy and we all like magic. Be lazy. Take what you know mix in a little magic to create something you don't know. 
 
-You get
--------
-And generates an impress.js presentation
+    Known > Magic > Awesomeness
+    Markdown > Pressdown > Impress.js

@@ -39,7 +39,7 @@
       
       <div id="impress">
 
-        <xsl:for-each-group select="*" group-starting-with="h1|h2">
+        <xsl:for-each-group select="*" group-starting-with="h1|h2|p">
           <div class="step slide" data-x="{position() * 1100}" data-rotate="{position() * 30}">
             <xsl:copy-of select="current-group()"/>
           </div>
