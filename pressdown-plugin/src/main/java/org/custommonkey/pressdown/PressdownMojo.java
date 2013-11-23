@@ -16,6 +16,8 @@ package org.custommonkey.pressdown;
  * limitations under the License.
  */
 
+import static org.custommonkey.pressdown.ReadableFile.readableFile;
+
 import java.io.File;
 
 import org.apache.maven.plugin.AbstractMojo;
@@ -47,9 +49,9 @@ public class PressdownMojo extends AbstractMojo {
 
         try {
 
-            final App app = new App();
+            final Pressdown app = new Pressdown();
 
-            app.transform("README.md");
+            app.transform(readableFile("README.md"));
 
         } catch (final Exception e) {
             e.printStackTrace();

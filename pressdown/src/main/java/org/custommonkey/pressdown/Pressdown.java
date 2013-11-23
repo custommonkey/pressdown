@@ -43,16 +43,16 @@ public class Pressdown {
 
     private final Transformer transformer;
 
-    Pressdown() throws TransformerConfigurationException, IOException {
+    public Pressdown() throws TransformerConfigurationException, IOException {
         this(internalXSL());
     }
 
-    Pressdown(final ReadableFile xslFile) throws TransformerConfigurationException,
+    public Pressdown(final ReadableFile xslFile) throws TransformerConfigurationException,
             IOException {
         this(xslFile.asStreamSource());
     }
 
-    Pressdown(final StreamSource xsl) throws TransformerConfigurationException,
+    public Pressdown(final StreamSource xsl) throws TransformerConfigurationException,
             IOException {
         transformer = new TransformerFactoryImpl().newTransformer(xsl);
         transformer.setParameter("css", read(resourceAsURL("style.css")));

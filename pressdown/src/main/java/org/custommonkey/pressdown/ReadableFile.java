@@ -7,11 +7,11 @@ import javax.xml.transform.stream.StreamSource;
 
 import org.xml.sax.InputSource;
 
-class ReadableFile extends File {
+public class ReadableFile extends File {
 
 	private static final long serialVersionUID = -4783309504397419263L;
 
-	static ReadableFile readableFile(String name) throws FileNotFoundException {
+	public static ReadableFile readableFile(String name) throws FileNotFoundException {
 		final ReadableFile file = new ReadableFile(name);
 		if (!file.canRead()) {
 			throw new FileNotFoundException(name);
