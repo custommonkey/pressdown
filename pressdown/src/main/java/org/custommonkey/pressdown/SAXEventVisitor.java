@@ -1,8 +1,8 @@
 package org.custommonkey.pressdown;
 
-import org.pegdown.LinkRenderer;
+import static org.custommonkey.pressdown.InputSourceUtils.readChars;
+
 import org.pegdown.PegDownProcessor;
-import org.pegdown.ToHtmlSerializer;
 import org.pegdown.ast.*;
 import org.xml.sax.*;
 import org.xml.sax.helpers.AttributesImpl;
@@ -86,7 +86,7 @@ class SAXEventVisitor implements XMLReader, Visitor {
             handler.startDocument();
             start("html");
             start("body");
-            visit(pegDownProcessor.parseMarkdown(Pressdown.readChars(input)));
+            visit(pegDownProcessor.parseMarkdown(readChars(input)));
             end("body");
             end("html");
             handler.endDocument();

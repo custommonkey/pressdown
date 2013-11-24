@@ -41,7 +41,7 @@
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
-                    <mainClass>org.custommonkey.pressdown.Pressdown</mainClass>
+                    <mainClass>org.custommonkey.pressdown.Main</mainClass>
                 </configuration>
             </plugin>
 
@@ -55,7 +55,7 @@
                         <manifest>
                             <classpathPrefix>lib/</classpathPrefix>
                             <addClasspath>true</addClasspath>
-                            <mainClass>org.custommonkey.pressdown.Pressdown</mainClass>
+                            <mainClass>org.custommonkey.pressdown.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -89,7 +89,7 @@
                 <configuration>
                     <programs>
                         <program>
-                            <mainClass>org.custommonkey.pressdown.Pressdown</mainClass>
+                            <mainClass>org.custommonkey.pressdown.Main</mainClass>
                             <name>pressdown</name>
                         </program>
                     </programs>
