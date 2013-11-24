@@ -49,9 +49,9 @@ public class PressdownMojo extends AbstractMojo {
 
         try {
 
-            final Pressdown app = new Pressdown();
+            final Pressdown pressdown = new Pressdown();
 
-            app.transform(readableFile("README.md"));
+            pressdown.markdownToHTML(readableFile("README.md"));
 
         } catch (final Exception e) {
             e.printStackTrace();

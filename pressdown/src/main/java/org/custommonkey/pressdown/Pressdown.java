@@ -44,7 +44,7 @@ public class Pressdown {
         return url;
     }
 
-    public void transform(final ReadableFile inputFile) throws TransformerException {
+    public void markdownToHTML(final ReadableFile inputFile) throws TransformerException {
         final StreamResult outputFile = outputFile(inputFile);
         err.printf("%s -> %s%n", inputFile, outputFile.getSystemId());
         transformer.transform(markdownSource(inputFile), outputFile);

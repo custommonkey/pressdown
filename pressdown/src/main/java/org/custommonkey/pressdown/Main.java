@@ -11,13 +11,17 @@ public class Main {
 	    try {
 	
 	        if (args.length == 0) {
-	            new Pressdown().transform(readableFile("README.md"));
+	        	
+	            new Pressdown().markdownToHTML(readableFile("README.md"));
+	            
 	        } else {
 	
-	            final Pressdown app = new Pressdown(readableFile(args[0]));
+	            final ReadableFile xslFile = readableFile(args[0]);
+	            
+				final Pressdown pressdown = new Pressdown(xslFile);
 	
 	            for (int i = 1; i < args.length; i++) {
-	                app.transform(readableFile(args[i]));
+	                pressdown.markdownToHTML(readableFile(args[i]));
 	            }
 	        }
 	
